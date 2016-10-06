@@ -18,6 +18,9 @@ void test_mg_decimal_round_off();
 void test_mg_decimal_round_down();
 void test_mg_decimal_ceiling();
 void test_mg_decimal_floor();
+void test_decimal_abs();
+void test_decimal_max();
+void test_decimal_min();
 
 void test_decimal()
 {
@@ -38,4 +41,7 @@ void test_decimal()
 	test_mg_decimal_round_down();
 	test_mg_decimal_ceiling();
 	test_mg_decimal_floor();
+	test_decimal_abs();
+	test_decimal_max();
+	test_decimal_min();
 }
