@@ -269,6 +269,15 @@
     <ClCompile Include="test\test_decimal_to_round_up.c">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="test\test_decimal_abs.c">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="test\test_decimal_max.c">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="test\test_decimal_min.c">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="src\x64-win64\uint256_mul_digits_1.nas" />

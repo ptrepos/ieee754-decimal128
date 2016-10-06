@@ -221,9 +221,12 @@
     <ClCompile Include="src\uint256_conversion.c" />
     <ClCompile Include="test\main.c" />
     <ClCompile Include="test\test_decimal.c" />
+    <ClCompile Include="test\test_decimal_abs.c" />
     <ClCompile Include="test\test_decimal_add.c" />
     <ClCompile Include="test\test_decimal_compare.c" />
     <ClCompile Include="test\test_decimal_divide.c" />
+    <ClCompile Include="test\test_decimal_max.c" />
+    <ClCompile Include="test\test_decimal_min.c" />
     <ClCompile Include="test\test_decimal_multiply.c" />
     <ClCompile Include="test\test_decimal_subtract.c" />
     <ClCompile Include="test\test_decimal_to_ceiling.c" />
