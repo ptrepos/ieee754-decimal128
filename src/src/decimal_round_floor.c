@@ -7,7 +7,7 @@
 #include <magica/decimal_private_impl.h>
 #include <magica/decimal.h>
 
-MG_DECIMAL_API mg_decimal_error mg_decimal_floor(/*inout*/mg_decimal *value, int precision)
+MG_DECIMAL_API mg_decimal_error mg_decimal_floor(const mg_decimal *value, int precision, /*out*/mg_decimal *ret)
 {
-	return mg_decimal_round_down(value, precision);
+	return mg_decimal_round_down(value, precision, /*out*/ret);
 }

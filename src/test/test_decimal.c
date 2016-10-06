@@ -13,6 +13,11 @@ void test_decimal_add();
 void test_decimal_subtract();
 void test_mg_decimal_multiply();
 void test_decimal_divide();
+void test_mg_decimal_round_up();
+void test_mg_decimal_round_off();
+void test_mg_decimal_round_down();
+void test_mg_decimal_ceiling();
+void test_mg_decimal_floor();
 
 void test_decimal()
 {
@@ -28,4 +33,9 @@ void test_decimal()
 	test_decimal_subtract();
 	test_mg_decimal_multiply();
 	test_decimal_divide();
+	test_mg_decimal_round_up();
+	test_mg_decimal_round_off();
+	test_mg_decimal_round_down();
+	test_mg_decimal_ceiling();
+	test_mg_decimal_floor();
 }

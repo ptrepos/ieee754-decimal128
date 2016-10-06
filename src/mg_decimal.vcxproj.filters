@@ -254,6 +254,21 @@
     <ClCompile Include="test\test_decimal_value_of_float.c">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="test\test_decimal_to_round_off.c">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="test\test_decimal_to_ceiling.c">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="test\test_decimal_to_floor.c">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="test\test_decimal_to_round_down.c">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="test\test_decimal_to_round_up.c">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="src\x64-win64\uint256_mul_digits_1.nas" />

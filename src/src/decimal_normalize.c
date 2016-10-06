@@ -12,7 +12,7 @@ static mg_decimal_error __mg_decimal_round_zero_digits(
 		int scale, 
 		/*out*/int *rounded_scale);
 
-MG_DECIMAL_API mg_decimal_error mg_decimal_normalize(/*inout*/mg_decimal *value)
+MG_DECIMAL_API mg_decimal_error mg_decimal_normalize(const mg_decimal *value, /*out*/mg_decimal *ret)
 {
 	mg_decimal_error err;
 	int sign, scale, status, rounded_scale;
@@ -41,7 +41,7 @@ MG_DECIMAL_API mg_decimal_error mg_decimal_normalize(/*inout*/mg_decimal *value)
 		scale = 0;
 	}
 
-	err = __mg_decimal_set_1(value, sign, scale, fraction);
+	err = __mg_decimal_set_1(/*out*/ret, sign, scale, fraction);
 	if(err != 0)
 		goto _ERROR;
 
@@ -50,7 +50,6 @@ _EXIT:
 _ERROR:
 	return err;
 }
-
 
 static int get_roundable_zero_digits(uint64_t value, uint64_t *cutted)
 {

@@ -226,6 +226,11 @@
     <ClCompile Include="test\test_decimal_divide.c" />
     <ClCompile Include="test\test_decimal_multiply.c" />
     <ClCompile Include="test\test_decimal_subtract.c" />
+    <ClCompile Include="test\test_decimal_to_ceiling.c" />
+    <ClCompile Include="test\test_decimal_to_floor.c" />
+    <ClCompile Include="test\test_decimal_to_round_down.c" />
+    <ClCompile Include="test\test_decimal_to_round_off.c" />
+    <ClCompile Include="test\test_decimal_to_round_up.c" />
     <ClCompile Include="test\test_decimal_to_string.c" />
     <ClCompile Include="test\test_decimal_value_of_double.c" />
     <ClCompile Include="test\test_decimal_value_of_float.c" />

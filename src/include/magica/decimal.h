@@ -57,7 +57,7 @@ MG_DECIMAL_API mg_decimal_error mg_decimal_to_float(const mg_decimal *value, /*o
 MG_DECIMAL_API mg_decimal_error mg_decimal_to_double(const mg_decimal *value, /*out*/double *ret);
 MG_DECIMAL_API mg_decimal_error mg_decimal_to_string(const mg_decimal *value, /*out*/char *buffer, int buffer_size, /*out*/int *required_buffer_size);
 
-MG_DECIMAL_API mg_decimal_error mg_decimal_negate(/*inout*/mg_decimal *op1);
+MG_DECIMAL_API mg_decimal_error mg_decimal_negate(const mg_decimal *op1, /*out*/mg_decimal *ret);
 MG_DECIMAL_API mg_decimal_error mg_decimal_add(const mg_decimal *op1, const mg_decimal *op2, /*out*/mg_decimal *ret);
 MG_DECIMAL_API mg_decimal_error mg_decimal_subtract(const mg_decimal *op1, const mg_decimal *op2, /*out*/mg_decimal *ret);
 MG_DECIMAL_API mg_decimal_error mg_decimal_multiply(const mg_decimal *op1, const mg_decimal *op2, /*out*/mg_decimal *ret);
@@ -69,13 +69,13 @@ MG_DECIMAL_API bool mg_decimal_is_positive_infinity(const mg_decimal *op1);
 MG_DECIMAL_API bool mg_decimal_is_negative_infinity(const mg_decimal *op1);
 MG_DECIMAL_API int mg_decimal_compare(const mg_decimal *op1, const mg_decimal *op2);
 
-MG_DECIMAL_API mg_decimal_error mg_decimal_round_down(/*inout*/mg_decimal *value, int precision);
-MG_DECIMAL_API mg_decimal_error mg_decimal_round_up(/*inout*/mg_decimal *value, int precision);
-MG_DECIMAL_API mg_decimal_error mg_decimal_round_off(/*inout*/mg_decimal *value, int precision);
-MG_DECIMAL_API mg_decimal_error mg_decimal_ceiling(/*inout*/mg_decimal *value, int precision);
-MG_DECIMAL_API mg_decimal_error mg_decimal_floor(/*inout*/mg_decimal *value, int precision);
+MG_DECIMAL_API mg_decimal_error mg_decimal_round_down(const mg_decimal *value, int precision, /*out*/mg_decimal *ret);
+MG_DECIMAL_API mg_decimal_error mg_decimal_round_up(const mg_decimal *value, int precision, /*out*/mg_decimal *ret);
+MG_DECIMAL_API mg_decimal_error mg_decimal_round_off(const mg_decimal *value, int precision, /*out*/mg_decimal *ret);
+MG_DECIMAL_API mg_decimal_error mg_decimal_ceiling(const mg_decimal *value, int precision, /*out*/mg_decimal *ret);
+MG_DECIMAL_API mg_decimal_error mg_decimal_floor(const mg_decimal *value, int precision, /*out*/mg_decimal *ret);
 
-MG_DECIMAL_API mg_decimal_error mg_decimal_normalize(/*inout*/mg_decimal *value);
+MG_DECIMAL_API mg_decimal_error mg_decimal_normalize(const mg_decimal *value, /*out*/mg_decimal *ret);
 MG_DECIMAL_API mg_decimal_error mg_decimal_abs(const mg_decimal *value, /*out*/mg_decimal *ret);
 MG_DECIMAL_API mg_decimal_error mg_decimal_min(const mg_decimal *value1, const mg_decimal *value2, /*out*/mg_decimal *ret);
 MG_DECIMAL_API mg_decimal_error mg_decimal_max(const mg_decimal *value1, const mg_decimal *value2, /*out*/mg_decimal *ret);

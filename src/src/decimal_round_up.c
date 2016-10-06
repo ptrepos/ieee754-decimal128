@@ -7,7 +7,7 @@
 #include <magica/decimal_private_impl.h>
 #include <magica/decimal.h>
 
-MG_DECIMAL_API mg_decimal_error mg_decimal_round_up(/*inout*/mg_decimal *value, int precision)
+MG_DECIMAL_API mg_decimal_error mg_decimal_round_up(const mg_decimal *value, int precision, /*out*/mg_decimal *ret)
 {
 	mg_decimal_error err;
 	int sign, scale, status, scale_diff;
@@ -32,7 +32,7 @@ MG_DECIMAL_API mg_decimal_error mg_decimal_round_up(/*inout*/mg_decimal *value, 
 	if(scale_diff < DIGIT_MAX) 
 		goto _EXIT;
 	else if(scale_diff > DIGIT_MAX) {
-		mg_decimal_zero(value);
+		mg_decimal_zero(ret);
 		goto _EXIT;
 	}
 
@@ -42,7 +42,7 @@ MG_DECIMAL_API mg_decimal_error mg_decimal_round_up(/*inout*/mg_decimal *value, 
 	mg_uint256_set(fraction, 1);
 	mg_uint256_add_1(fraction, tmp);
 
-	err = __mg_decimal_set_1(value, sign, -precision, fraction);
+	err = __mg_decimal_set_1(/*out*/ret, sign, -precision, fraction);
 	if(err != 0)
 		goto _ERROR;
 
