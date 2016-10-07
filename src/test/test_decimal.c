@@ -21,6 +21,10 @@ void test_mg_decimal_floor();
 void test_decimal_abs();
 void test_decimal_max();
 void test_decimal_min();
+void test_decimal_zero();
+void test_decimal_nan();
+void test_decimal_positive_infinity();
+void test_decimal_negative_infinity();
 
 void test_decimal()
 {
@@ -44,4 +48,8 @@ void test_decimal()
 	test_decimal_abs();
 	test_decimal_max();
 	test_decimal_min();
+	test_decimal_zero();
+	test_decimal_nan();
+	test_decimal_positive_infinity();
+	test_decimal_negative_infinity();
 }

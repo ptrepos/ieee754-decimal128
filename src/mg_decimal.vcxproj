@@ -228,6 +228,9 @@
     <ClCompile Include="test\test_decimal_max.c" />
     <ClCompile Include="test\test_decimal_min.c" />
     <ClCompile Include="test\test_decimal_multiply.c" />
+    <ClCompile Include="test\test_decimal_nan.c" />
+    <ClCompile Include="test\test_decimal_negative_infinity.c" />
+    <ClCompile Include="test\test_decimal_positive_infinity.c" />
     <ClCompile Include="test\test_decimal_subtract.c" />
     <ClCompile Include="test\test_decimal_to_ceiling.c" />
     <ClCompile Include="test\test_decimal_to_floor.c" />
@@ -241,6 +244,7 @@
     <ClCompile Include="test\test_decimal_value_of_int64.c" />
     <ClCompile Include="test\test_decimal_value_of_uint.c" />
     <ClCompile Include="test\test_decimal_value_of_uint64.c" />
+    <ClCompile Include="test\test_decimal_zero.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\magica\decimal.h" />
