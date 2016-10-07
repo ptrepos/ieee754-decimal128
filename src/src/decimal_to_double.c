@@ -55,8 +55,10 @@ MG_DECIMAL_API mg_decimal_error mg_decimal_to_double(const mg_decimal *value, /*
 
 	double dlow = (double)mg_uint256_get_uint64(&low);
 	double dhigh = (double)mg_uint256_get_uint64(&high);
-	double dfraction = (dhigh * 1e+17 + dlow);
-	
+	double dfraction = (dhigh + dlow * 1e-17);
+
+	scale += 17;
+
 	double abs;
 	if(scale < 0) {
 		abs = dfraction / __power(-scale);

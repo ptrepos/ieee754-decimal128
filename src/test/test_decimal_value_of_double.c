@@ -15,8 +15,9 @@ static void value_test(double value, double diff)
 
 	MG_OK(mg_decimal_to_string(&value1, /*out*/strbuf, 1024, NULL));
 
-	MG_DEBUG("data: %s\n", strbuf);
-	MG_DEBUG("test: %.17f\n", value);
+	MG_DEBUG("data : %s\n", strbuf);
+	MG_DEBUG("test1: %.17f\n", value);
+	MG_DEBUG("test2: %.17f\n", value2);
 
 	MG_ASSERT(fabs(value - value2) <= diff);
 }
