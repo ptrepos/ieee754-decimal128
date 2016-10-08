@@ -251,8 +251,10 @@
     <ClCompile Include="test\test_decimal.c" />
     <ClCompile Include="test\test_decimal_abs.c" />
     <ClCompile Include="test\test_decimal_add.c" />
+    <ClCompile Include="test\test_decimal_ceiling.c" />
     <ClCompile Include="test\test_decimal_compare.c" />
     <ClCompile Include="test\test_decimal_divide.c" />
+    <ClCompile Include="test\test_decimal_floor.c" />
     <ClCompile Include="test\test_decimal_max.c" />
     <ClCompile Include="test\test_decimal_max_value.c" />
     <ClCompile Include="test\test_decimal_min.c" />
@@ -263,12 +265,10 @@
     <ClCompile Include="test\test_decimal_negative_infinity.c" />
     <ClCompile Include="test\test_decimal_one.c" />
     <ClCompile Include="test\test_decimal_positive_infinity.c" />
+    <ClCompile Include="test\test_decimal_round_down.c" />
+    <ClCompile Include="test\test_decimal_round_off.c" />
+    <ClCompile Include="test\test_decimal_round_up.c" />
     <ClCompile Include="test\test_decimal_subtract.c" />
-    <ClCompile Include="test\test_decimal_to_ceiling.c" />
-    <ClCompile Include="test\test_decimal_to_floor.c" />
-    <ClCompile Include="test\test_decimal_to_round_down.c" />
-    <ClCompile Include="test\test_decimal_to_round_off.c" />
-    <ClCompile Include="test\test_decimal_to_round_up.c" />
     <ClCompile Include="test\test_decimal_to_string.c" />
     <ClCompile Include="test\test_decimal_value_of_double.c" />
     <ClCompile Include="test\test_decimal_value_of_float.c" />

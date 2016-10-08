@@ -209,9 +209,6 @@
     <ClCompile Include="src\decimal_round_ceiling.c">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="src\decimal_round_down.c">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="src\decimal_round_floor.c">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
@@ -252,21 +249,6 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="test\test_decimal_value_of_float.c">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="test\test_decimal_to_round_off.c">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="test\test_decimal_to_ceiling.c">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="test\test_decimal_to_floor.c">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="test\test_decimal_to_round_down.c">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="test\test_decimal_to_round_up.c">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="test\test_decimal_abs.c">
@@ -324,6 +306,24 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="test\test_decimal_one.c">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="test\test_decimal_ceiling.c">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="test\test_decimal_floor.c">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="test\test_decimal_round_down.c">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="test\test_decimal_round_off.c">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="test\test_decimal_round_up.c">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\decimal_round_down.c">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
