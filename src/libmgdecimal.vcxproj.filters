@@ -74,9 +74,6 @@
     <ClCompile Include="src\generic64\uint128_div.c">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="test\main.c">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="src\uint128_conversion.c">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
@@ -104,19 +101,10 @@
     <ClCompile Include="src\generic64\uint256_get_10eN.c">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="test\test_decimal_to_string.c">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="test\test_decimal.c">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="src\decimal_round_down_max_digits.c">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="src\decimal_multiply.c">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="test\test_decimal_multiply.c">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="src\decimal_compare.c">
@@ -125,13 +113,7 @@
     <ClCompile Include="src\decimal_is_zero.c">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="test\test_decimal_compare.c">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="src\decimal_add.c">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="test\test_decimal_add.c">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="src\decimal_divide.c">
@@ -141,12 +123,6 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="src\decimal_subtract.c">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="test\test_decimal_subtract.c">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="test\test_decimal_divide.c">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="src\decimal_infinity.c">
@@ -233,45 +209,6 @@
     <ClCompile Include="src\decimal_value_of_float.c">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="test\test_decimal_value_of_int.c">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="test\test_decimal_value_of_uint.c">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="test\test_decimal_value_of_int64.c">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="test\test_decimal_value_of_uint64.c">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="test\test_decimal_value_of_double.c">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="test\test_decimal_value_of_float.c">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="test\test_decimal_abs.c">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="test\test_decimal_max.c">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="test\test_decimal_min.c">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="test\test_decimal_nan.c">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="test\test_decimal_positive_infinity.c">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="test\test_decimal_negative_infinity.c">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="test\test_decimal_zero.c">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="src\generic64\decimal_unpack.c">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
@@ -294,33 +231,6 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="src\decimal_one.c">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="test\test_decimal_max_value.c">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="test\test_decimal_min_value.c">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="test\test_decimal_minus_one.c">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="test\test_decimal_one.c">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="test\test_decimal_ceiling.c">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="test\test_decimal_floor.c">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="test\test_decimal_round_down.c">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="test\test_decimal_round_off.c">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="test\test_decimal_round_up.c">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="src\decimal_round_down.c">

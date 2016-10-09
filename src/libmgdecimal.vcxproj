@@ -23,29 +23,30 @@
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>mg_int</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <ProjectName>libmgdecimal</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -247,36 +248,6 @@
     </ClCompile>
     <ClCompile Include="src\uint128_conversion.c" />
     <ClCompile Include="src\uint256_conversion.c" />
-    <ClCompile Include="test\main.c" />
-    <ClCompile Include="test\test_decimal.c" />
-    <ClCompile Include="test\test_decimal_abs.c" />
-    <ClCompile Include="test\test_decimal_add.c" />
-    <ClCompile Include="test\test_decimal_ceiling.c" />
-    <ClCompile Include="test\test_decimal_compare.c" />
-    <ClCompile Include="test\test_decimal_divide.c" />
-    <ClCompile Include="test\test_decimal_floor.c" />
-    <ClCompile Include="test\test_decimal_max.c" />
-    <ClCompile Include="test\test_decimal_max_value.c" />
-    <ClCompile Include="test\test_decimal_min.c" />
-    <ClCompile Include="test\test_decimal_minus_one.c" />
-    <ClCompile Include="test\test_decimal_min_value.c" />
-    <ClCompile Include="test\test_decimal_multiply.c" />
-    <ClCompile Include="test\test_decimal_nan.c" />
-    <ClCompile Include="test\test_decimal_negative_infinity.c" />
-    <ClCompile Include="test\test_decimal_one.c" />
-    <ClCompile Include="test\test_decimal_positive_infinity.c" />
-    <ClCompile Include="test\test_decimal_round_down.c" />
-    <ClCompile Include="test\test_decimal_round_off.c" />
-    <ClCompile Include="test\test_decimal_round_up.c" />
-    <ClCompile Include="test\test_decimal_subtract.c" />
-    <ClCompile Include="test\test_decimal_to_string.c" />
-    <ClCompile Include="test\test_decimal_value_of_double.c" />
-    <ClCompile Include="test\test_decimal_value_of_float.c" />
-    <ClCompile Include="test\test_decimal_value_of_int.c" />
-    <ClCompile Include="test\test_decimal_value_of_int64.c" />
-    <ClCompile Include="test\test_decimal_value_of_uint.c" />
-    <ClCompile Include="test\test_decimal_value_of_uint64.c" />
-    <ClCompile Include="test\test_decimal_zero.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\magica\decimal.h" />
