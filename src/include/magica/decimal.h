@@ -31,15 +31,13 @@ MG_DECIMAL_API void mg_decimal_positive_infinity(/*out*/mg_decimal *value);
 MG_DECIMAL_API void mg_decimal_negative_infinity(/*out*/mg_decimal *value);
 MG_DECIMAL_API void mg_decimal_nan(/*out*/mg_decimal *value);
 
-#if 0
 MG_DECIMAL_API void mg_decimal_one(/*out*/mg_decimal *value);
 MG_DECIMAL_API void mg_decimal_minus_one(/*out*/mg_decimal *value);
 MG_DECIMAL_API void mg_decimal_min_value(/*out*/mg_decimal *value);
 MG_DECIMAL_API void mg_decimal_max_value(/*out*/mg_decimal *value);
 
-MG_DECIMAL_API void mg_decimal_set_binary(/*out*/mg_decimal *value, uint64_t high, uint64_t low);
-MG_DECIMAL_API void mg_decimal_get_binary(const mg_decimal *value, /*out*/uint64_t *high, /*out*/uint64_t *low);
-#endif
+MG_DECIMAL_API void mg_decimal_pack(const mg_decimal *value, /*out*/uint64_t *low, /*out*/uint64_t *high);
+MG_DECIMAL_API void mg_decimal_unpack(uint64_t low, uint64_t high, /*out*/mg_decimal *ret);
 
 MG_DECIMAL_API mg_decimal_error mg_decimal_value_of_int(int value, /*out*/mg_decimal *ret);
 MG_DECIMAL_API mg_decimal_error mg_decimal_value_of_uint(unsigned int value, /*out*/mg_decimal *ret);

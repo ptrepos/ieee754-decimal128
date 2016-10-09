@@ -164,12 +164,16 @@
     <ClCompile Include="src\decimal_is_nan.c" />
     <ClCompile Include="src\decimal_is_zero.c" />
     <ClCompile Include="src\decimal_max.c" />
+    <ClCompile Include="src\decimal_max_value.c" />
     <ClCompile Include="src\decimal_min.c" />
+    <ClCompile Include="src\decimal_minus_one.c" />
+    <ClCompile Include="src\decimal_min_value.c" />
     <ClCompile Include="src\decimal_multiply.c" />
     <ClCompile Include="src\decimal_nan.c" />
     <ClCompile Include="src\decimal_negate.c" />
     <ClCompile Include="src\decimal_negative_infinity.c" />
     <ClCompile Include="src\decimal_normalize.c" />
+    <ClCompile Include="src\decimal_one.c" />
     <ClCompile Include="src\decimal_parse_string.c" />
     <ClCompile Include="src\decimal_positive_infinity.c" />
     <ClCompile Include="src\decimal_round_ceiling.c" />
@@ -193,6 +197,14 @@
     <ClCompile Include="src\decimal_value_of_uint.c" />
     <ClCompile Include="src\decimal_value_of_uint64.c" />
     <ClCompile Include="src\decimal_zero.c" />
+    <ClCompile Include="src\generic32\decimal_pack.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="src\generic32\decimal_unpack.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="src\generic32\uint128_div.c">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
@@ -204,6 +216,22 @@
     <ClCompile Include="src\generic32\uint256_get_10eN.c">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="src\generic64\decimal_pack.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="src\generic64\decimal_unpack.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="src\generic64\uint128_div.c">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
@@ -223,20 +251,24 @@
     <ClCompile Include="test\test_decimal.c" />
     <ClCompile Include="test\test_decimal_abs.c" />
     <ClCompile Include="test\test_decimal_add.c" />
+    <ClCompile Include="test\test_decimal_ceiling.c" />
     <ClCompile Include="test\test_decimal_compare.c" />
     <ClCompile Include="test\test_decimal_divide.c" />
+    <ClCompile Include="test\test_decimal_floor.c" />
     <ClCompile Include="test\test_decimal_max.c" />
+    <ClCompile Include="test\test_decimal_max_value.c" />
     <ClCompile Include="test\test_decimal_min.c" />
+    <ClCompile Include="test\test_decimal_minus_one.c" />
+    <ClCompile Include="test\test_decimal_min_value.c" />
     <ClCompile Include="test\test_decimal_multiply.c" />
     <ClCompile Include="test\test_decimal_nan.c" />
     <ClCompile Include="test\test_decimal_negative_infinity.c" />
+    <ClCompile Include="test\test_decimal_one.c" />
     <ClCompile Include="test\test_decimal_positive_infinity.c" />
+    <ClCompile Include="test\test_decimal_round_down.c" />
+    <ClCompile Include="test\test_decimal_round_off.c" />
+    <ClCompile Include="test\test_decimal_round_up.c" />
     <ClCompile Include="test\test_decimal_subtract.c" />
-    <ClCompile Include="test\test_decimal_to_ceiling.c" />
-    <ClCompile Include="test\test_decimal_to_floor.c" />
-    <ClCompile Include="test\test_decimal_to_round_down.c" />
-    <ClCompile Include="test\test_decimal_to_round_off.c" />
-    <ClCompile Include="test\test_decimal_to_round_up.c" />
     <ClCompile Include="test\test_decimal_to_string.c" />
     <ClCompile Include="test\test_decimal_value_of_double.c" />
     <ClCompile Include="test\test_decimal_value_of_float.c" />

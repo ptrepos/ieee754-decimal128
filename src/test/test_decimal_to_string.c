@@ -117,6 +117,30 @@ void test_mg_decimal_to_string()
 	test_round("0.00000009876543210987654321098765432109876543210", "0.00000009876543210987654321098765432109876");
 	test_round("0.0000000000000000000000000009876543210987654321098765432109876543210", "0.0000000000000000000000000009876543210987654321098765432109876");
 	test_round("987654321098765.4321098765432109876543210", "987654321098765.4321098765432109876");
+	test_round("1e-6177", "0");
+	test_round("-1e-6177", "0");
+
+	mg_decimal value;
+
+	MG_ASSERT(mg_decimal_parse_string("999999999999999999999999999999999e+6112", &value) != 0);
+
+	//mg_decimal value;
+	//uint64_t low, high;
+	//mg_decimal_parse_string("1", &value);
+	//mg_decimal_pack(&value, /*out*/&low, /*out*/&high);
+	//printf("0x%016llxULL, 0x%016llxULL\n", low, high);
+
+	//mg_decimal_parse_string("-1", &value);
+	//mg_decimal_pack(&value, /*out*/&low, /*out*/&high);
+	//printf("0x%016llxULL, 0x%016llxULL\n", low, high);
+
+	//mg_decimal_parse_string("1e-6176", &value);
+	//mg_decimal_pack(&value, /*out*/&low, /*out*/&high);
+	//printf("0x%016llxULL, 0x%016llxULL\n", low, high);
+
+	//mg_decimal_parse_string("999999999999999999999999999999999e+6111", &value);
+	//mg_decimal_pack(&value, /*out*/&low, /*out*/&high);
+	//printf("0x%016llxULL, 0x%016llxULL\n", low, high);
 
 	MG_TEST_END();
 }
