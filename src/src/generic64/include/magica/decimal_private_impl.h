@@ -115,6 +115,37 @@ static inline void __mg_decimal_set(/*out*/mg_decimal *value, int sign, int scal
 		(((uint64_t)fraction->word[1] << FRACTION_BITINDEX) & FRACTION_MASK);
 }
 
+static mg_decimal_error adjust_overflow_scale(
+		int sign, 
+		int scale, 
+		const mg_uint256 *fraction,
+		/*out*/int *adjusted_scale,
+		/*out*/mg_uint256 *adjusted_fraction,
+		/*out*/mg_decimal *value)
+{
+	mg_decimal_error err;
+
+	if(scale - SCALE_MAX < DIGIT_MAX) {
+		mg_uint256_mul128(fraction, mg_uint256_get_10eN(scale - SCALE_MAX), adjusted_fraction);
+
+		if(__mg_decimal_is_overflow(adjusted_fraction) != 0) {
+			mg_decimal_infinity(/*out*/value, sign == SIGN_POSITIVE);
+			err = MG_DECIMAL_ERROR_OVERFLOW;
+			goto _ERROR;
+		}
+
+		*adjusted_scale = SCALE_MAX;
+	} else {
+		mg_decimal_infinity(/*out*/value, sign == SIGN_POSITIVE);
+		err = MG_DECIMAL_ERROR_OVERFLOW;
+		goto _ERROR;
+	}
+
+	return 0;
+_ERROR:
+	return err;
+}
+
 static inline mg_decimal_error __mg_decimal_set_1(/*out*/mg_decimal *value, int sign, int scale, const mg_uint256 *fraction)
 {
 	mg_decimal_error err;
@@ -130,21 +161,25 @@ static inline mg_decimal_error __mg_decimal_set_1(/*out*/mg_decimal *value, int 
 		goto _EXIT;
 	}
 
+	mg_uint256 adjusted_fraction;
 	if(scale > SCALE_MAX) {
-		mg_decimal_infinity(/*out*/value, sign == SIGN_POSITIVE);
-		err = MG_DECIMAL_ERROR_OVERFLOW;
-		goto _ERROR;
+		err = adjust_overflow_scale(sign, scale, fraction,
+				/*out*/&scale, /*out*/&adjusted_fraction, /*out*/value);
+		if(err != 0)
+			goto _ERROR;
+	} else {
+		adjusted_fraction = *fraction;
 	}
-
-	assert(__mg_decimal_is_overflow(fraction) == 0);
+	
+	assert(__mg_decimal_is_overflow(&adjusted_fraction) == 0);
 
 	scale += SCALE_SIGNEXPAND;
 
-	value->w[0] = fraction->word[0];
+	value->w[0] = adjusted_fraction.word[0];
 	value->w[INFO_INDEX] =
 		(((uint64_t)sign << SIGN_BITINDEX) & SIGN_MASK) | 
 		(((uint64_t)scale << SCALE_BITINDEX) & SCALE_MASK) | 
-		(((uint64_t)fraction->word[1] << FRACTION_BITINDEX) & FRACTION_MASK);
+		(((uint64_t)adjusted_fraction.word[1] << FRACTION_BITINDEX) & FRACTION_MASK);
 
 _EXIT:
 	return 0;
