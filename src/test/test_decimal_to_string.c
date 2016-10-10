@@ -124,6 +124,7 @@ void test_mg_decimal_to_string()
 
 	MG_ASSERT(mg_decimal_parse_string("9999999999999999999999999999999999e+6112", &value) != 0);
 	MG_ASSERT(mg_decimal_parse_string("999999999999999999999999999999999e+6112", &value) == 0);
+	MG_ASSERT(mg_decimal_parse_string("99999999999999999999999999999999e+6113", &value) == 0);
 
 	//uint64_t low, high;
 	//mg_decimal_parse_string("1", &value);
