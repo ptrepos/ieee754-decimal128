@@ -122,9 +122,9 @@ void test_mg_decimal_to_string()
 
 	mg_decimal value;
 
-	MG_ASSERT(mg_decimal_parse_string("999999999999999999999999999999999e+6112", &value) != 0);
+	MG_ASSERT(mg_decimal_parse_string("9999999999999999999999999999999999e+6112", &value) != 0);
+	MG_ASSERT(mg_decimal_parse_string("999999999999999999999999999999999e+6112", &value) == 0);
 
-	//mg_decimal value;
 	//uint64_t low, high;
 	//mg_decimal_parse_string("1", &value);
 	//mg_decimal_pack(&value, /*out*/&low, /*out*/&high);
@@ -138,7 +138,7 @@ void test_mg_decimal_to_string()
 	//mg_decimal_pack(&value, /*out*/&low, /*out*/&high);
 	//printf("0x%016llxULL, 0x%016llxULL\n", low, high);
 
-	//mg_decimal_parse_string("999999999999999999999999999999999e+6111", &value);
+	//mg_decimal_parse_string("9999999999999999999999999999999999e+6111", &value);
 	//mg_decimal_pack(&value, /*out*/&low, /*out*/&high);
 	//printf("0x%016llxULL, 0x%016llxULL\n", low, high);
 

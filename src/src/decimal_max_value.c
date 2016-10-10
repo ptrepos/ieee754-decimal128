@@ -10,5 +10,5 @@
 
 MG_DECIMAL_API void mg_decimal_max_value(/*out*/mg_decimal *value)
 {
-	mg_decimal_unpack(0x38c15b09ffffffffULL, 0x6000314dc6448d93ULL, /*out*/value);
+	mg_decimal_unpack(0x378d8e63ffffffffULL, 0x6001ed09bead87c0ULL, /*out*/value);
 }

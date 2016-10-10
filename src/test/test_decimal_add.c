@@ -15,6 +15,50 @@ static void add_test(const char *text1, const char *text2, const char *ret)
 	MG_ASSERT(mg_decimal_compare_1(&value3, &value4) == 0);
 }
 
+static void add_infinity_test(const char *text1)
+{
+	mg_decimal value1, value2, value3;
+
+	MG_OK(mg_decimal_parse_string(text1, &value1));
+	mg_decimal_positive_infinity(&value2);
+
+	MG_OK(mg_decimal_add(&value1, &value2, /*out*/&value3) == 0);
+	MG_ASSERT(mg_decimal_is_positive_infinity(&value3));
+
+	MG_OK(mg_decimal_add(&value2, &value1, /*out*/&value3) == 0);
+	MG_ASSERT(mg_decimal_is_positive_infinity(&value3));
+	
+	mg_decimal_negative_infinity(&value2);
+
+	MG_OK(mg_decimal_add(&value1, &value2, /*out*/&value3) == 0);
+	MG_ASSERT(mg_decimal_is_negative_infinity(&value3));
+
+	MG_OK(mg_decimal_add(&value2, &value1, /*out*/&value3) == 0);
+	MG_ASSERT(mg_decimal_is_negative_infinity(&value3));
+}
+
+static void add_positive_overflow_test(const char *text1, const char *text2)
+{
+	mg_decimal value1, value2, value3;
+
+	MG_OK(mg_decimal_parse_string(text1, &value1));
+	MG_OK(mg_decimal_parse_string(text1, &value2));
+
+	MG_OK(mg_decimal_add(&value1, &value2, /*out*/&value3) == 0);
+	MG_ASSERT(mg_decimal_is_positive_infinity(&value3));
+}
+
+static void add_negative_overflow_test(const char *text1, const char *text2)
+{
+	mg_decimal value1, value2, value3;
+
+	MG_OK(mg_decimal_parse_string(text1, &value1));
+	MG_OK(mg_decimal_parse_string(text1, &value2));
+
+	MG_OK(mg_decimal_add(&value1, &value2, /*out*/&value3) == 0);
+	MG_ASSERT(mg_decimal_is_negative_infinity(&value3));
+}
+
 void test_decimal_add()
 {
 	MG_TEST_BEGIN();
@@ -56,6 +100,19 @@ void test_decimal_add()
 	add_test("9999999999999999999999999999999999", "1", "10000000000000000000000000000000000");
 	add_test("99999999999999999999999999999999990", "10", "100000000000000000000000000000000000");
 	add_test("9999999999999999999999999999999999", "9999999999999999999999999999999999", "19999999999999999999999999999999990");
+
+	add_infinity_test("0.0000000000000000000000000000000000000000000000000000000000000000001");
+	add_infinity_test("0.0000000000000000000000001");
+	add_infinity_test("1");
+	add_infinity_test("100000000000000000");
+	add_infinity_test("1000000000000000000000000000000000000000");
+	add_infinity_test("100000000000000000000000000000000000000000000000000000000000000000000000000");
+
+	add_positive_overflow_test("9999999999999999999999999999999999e+6111", "9999999999999999999999999999999999e+6111");
+	add_positive_overflow_test("9999999999999999999999999999999999e+6111", "9999999999999999999999999999999999e+6080");
+
+	add_negative_overflow_test("-9999999999999999999999999999999999e+6111", "-9999999999999999999999999999999999e+6111");
+	add_negative_overflow_test("-9999999999999999999999999999999999e+6111", "-9999999999999999999999999999999999e+6080");
 
 	MG_TEST_END();
 }

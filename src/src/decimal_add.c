@@ -29,7 +29,11 @@ MG_DECIMAL_API mg_decimal_error mg_decimal_add(const mg_decimal *op1, const mg_d
 		goto _ERROR;
 	}
 	if(status1 == DECIMAL_STATUS_INF || status2 == DECIMAL_STATUS_INF) {
-		mg_decimal_infinity(/*out*/ret, sign1 == SIGN_POSITIVE);
+		if(status1 == DECIMAL_STATUS_INF) {
+			mg_decimal_infinity(/*out*/ret, sign1 == SIGN_POSITIVE);
+		} else if(status2 == DECIMAL_STATUS_INF) {
+			mg_decimal_infinity(/*out*/ret, sign2 == SIGN_POSITIVE);
+		}
 		err = MG_DECIMAL_ERROR_OVERFLOW;
 		goto _ERROR;
 	}
