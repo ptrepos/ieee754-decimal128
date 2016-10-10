@@ -61,11 +61,12 @@ MG_DECIMAL_API mg_decimal_error mg_decimal_subtract(const mg_decimal *op1, const
 MG_DECIMAL_API mg_decimal_error mg_decimal_multiply(const mg_decimal *op1, const mg_decimal *op2, /*out*/mg_decimal *ret);
 MG_DECIMAL_API mg_decimal_error mg_decimal_divide(const mg_decimal *op1, const mg_decimal *op2, /*out*/mg_decimal *ret);
 
+MG_DECIMAL_API mg_decimal_error mg_decimal_compare(const mg_decimal *op1, const mg_decimal *op2, /*out*/int *ret);
 MG_DECIMAL_API bool mg_decimal_is_zero(const mg_decimal *op1);
 MG_DECIMAL_API bool mg_decimal_is_nan(const mg_decimal *op1);
 MG_DECIMAL_API bool mg_decimal_is_positive_infinity(const mg_decimal *op1);
 MG_DECIMAL_API bool mg_decimal_is_negative_infinity(const mg_decimal *op1);
-MG_DECIMAL_API int mg_decimal_compare(const mg_decimal *op1, const mg_decimal *op2);
+MG_DECIMAL_API int mg_decimal_compare_1(const mg_decimal *op1, const mg_decimal *op2);
 
 MG_DECIMAL_API mg_decimal_error mg_decimal_round_down(const mg_decimal *value, int precision, /*out*/mg_decimal *ret);
 MG_DECIMAL_API mg_decimal_error mg_decimal_round_up(const mg_decimal *value, int precision, /*out*/mg_decimal *ret);

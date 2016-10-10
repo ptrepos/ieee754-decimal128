@@ -9,7 +9,7 @@
 
 MG_DECIMAL_API mg_decimal_error mg_decimal_max(const mg_decimal *value1, const mg_decimal *value2, /*out*/mg_decimal *ret)
 {
-	if(mg_decimal_compare(value1, value2) < 0) {
+	if(mg_decimal_compare_1(value1, value2) < 0) {
 		*ret = *value2;
 	} else {
 		*ret = *value1;

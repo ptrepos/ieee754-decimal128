@@ -10,15 +10,15 @@ static void compare_test(const char *text1, const char *text2, int ret)
 	MG_OK(mg_decimal_parse_string(text2, &value2));
 
 	if(ret < 0) {
-		MG_ASSERT(mg_decimal_compare(&value1, &value2) < 0);
+		MG_ASSERT(mg_decimal_compare_1(&value1, &value2) < 0);
 	} else if(ret == 0) {
-		MG_ASSERT(mg_decimal_compare(&value1, &value2) == 0);
+		MG_ASSERT(mg_decimal_compare_1(&value1, &value2) == 0);
 	} else {
-		MG_ASSERT(mg_decimal_compare(&value1, &value2) > 0);
+		MG_ASSERT(mg_decimal_compare_1(&value1, &value2) > 0);
 	}
 }
 
-void test_mg_decimal_compare()
+void test_mg_decimal_compare_1()
 {
 	MG_TEST_BEGIN();
 	

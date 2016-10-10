@@ -158,6 +158,7 @@
     <ClCompile Include="src\decimal_abs.c" />
     <ClCompile Include="src\decimal_add.c" />
     <ClCompile Include="src\decimal_compare.c" />
+    <ClCompile Include="src\decimal_compare_1.c" />
     <ClCompile Include="src\decimal_divide.c" />
     <ClCompile Include="src\decimal_infinity.c" />
     <ClCompile Include="src\decimal_is_negative_infinity.c" />

@@ -236,6 +236,9 @@
     <ClCompile Include="src\decimal_round_down.c">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="src\decimal_compare_1.c">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="src\x64-win64\uint256_mul_digits_1.nas" />

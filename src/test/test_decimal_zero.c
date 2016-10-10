@@ -14,7 +14,7 @@ void test_decimal_zero()
 	MG_ASSERT(mg_decimal_is_negative_infinity(&value) == 0);
 	MG_ASSERT(mg_decimal_is_zero(&value) != 0);
 	
-	MG_ASSERT(mg_decimal_compare(&value, &value) == 0);
+	MG_ASSERT(mg_decimal_compare_1(&value, &value) == 0);
 
 	MG_TEST_END();
 }

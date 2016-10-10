@@ -11,7 +11,7 @@ static void test(const char *text1, const char *ret)
 
 	MG_OK(mg_decimal_parse_string(ret, &value4));
 
-	MG_ASSERT(mg_decimal_compare(&value3, &value4) == 0);
+	MG_ASSERT(mg_decimal_compare_1(&value3, &value4) == 0);
 }
 
 void test_decimal_abs()

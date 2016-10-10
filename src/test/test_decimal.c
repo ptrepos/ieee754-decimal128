@@ -8,7 +8,7 @@ void test_decimal_value_of_int64();
 void test_decimal_value_of_uint64();
 void test_decimal_value_of_float();
 void test_decimal_value_of_double();
-void test_mg_decimal_compare();
+void test_mg_decimal_compare_1();
 void test_decimal_add();
 void test_decimal_subtract();
 void test_mg_decimal_multiply();
@@ -39,7 +39,7 @@ void test_decimal()
 	test_decimal_value_of_uint64();
 	test_decimal_value_of_float();
 	test_decimal_value_of_double();
-	test_mg_decimal_compare();
+	test_mg_decimal_compare_1();
 	test_decimal_add();
 	test_decimal_subtract();
 	test_mg_decimal_multiply();

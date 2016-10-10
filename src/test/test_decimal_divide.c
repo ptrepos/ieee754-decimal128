@@ -17,7 +17,7 @@ static void divide_test(const char *text1, const char *text2, const char *ret)
 	
 	//MG_DEBUG("%s\n", strbuf);
 
-	MG_ASSERT(mg_decimal_compare(&value3, &value4) == 0);
+	MG_ASSERT(mg_decimal_compare_1(&value3, &value4) == 0);
 }
 
 void test_decimal_divide()
