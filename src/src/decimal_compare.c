@@ -50,14 +50,14 @@ MG_DECIMAL_API mg_decimal_error mg_decimal_compare(const mg_decimal *op1, const 
 	}
 
 	if(status1 == DECIMAL_STATUS_INF || status2 == DECIMAL_STATUS_INF) {
-		if(status1 == DECIMAL_STATUS_INF || status2 != DECIMAL_STATUS_INF) {
-			*ret = 1;
+		if(status2 != DECIMAL_STATUS_INF) {
+			*ret = sign1 == SIGN_POSITIVE ? 1: -1;
 			goto _EXIT;
-		} else if(status1 != DECIMAL_STATUS_INF || status2 == DECIMAL_STATUS_INF) {
-			*ret = -1;
+		} else if(status1 != DECIMAL_STATUS_INF) {
+			*ret = sign2 == SIGN_POSITIVE ? -1: 1;
 			goto _EXIT;
 		} else {
-			*ret = 0;
+			*ret = sign1 == sign2 ? 0: (sign1 == SIGN_POSITIVE ? 1: -1);
 			goto _EXIT;
 		}
 	}

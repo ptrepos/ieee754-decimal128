@@ -18,6 +18,76 @@ static void compare_test(const char *text1, const char *text2, int ret)
 	}
 }
 
+static void compare_positive_infinity_test(const char *text1)
+{
+	int ret;
+	mg_decimal value1, value2;
+
+	MG_OK(mg_decimal_parse_string(text1, &value1));
+	mg_decimal_positive_infinity(&value2);
+
+	MG_OK(mg_decimal_compare(&value1, &value2, /*out*/&ret));
+	MG_ASSERT(ret < 0);
+	MG_OK(mg_decimal_compare(&value2, &value1, /*out*/&ret));
+	MG_ASSERT(ret > 0);
+}
+
+static void compare_negative_infinity_test(const char *text1)
+{
+	int ret;
+	mg_decimal value1, value2;
+
+	MG_OK(mg_decimal_parse_string(text1, &value1));
+	mg_decimal_negative_infinity(&value2);
+
+	MG_OK(mg_decimal_compare(&value1, &value2, /*out*/&ret));
+	MG_ASSERT(ret > 0);
+	MG_OK(mg_decimal_compare(&value2, &value1, /*out*/&ret));
+	MG_ASSERT(ret < 0);
+}
+
+static void compare_infinity_test()
+{
+	int ret;
+	mg_decimal value1, value2;
+
+	mg_decimal_positive_infinity(&value1);
+	mg_decimal_positive_infinity(&value2);
+
+	MG_OK(mg_decimal_compare(&value1, &value2, /*out*/&ret));
+	MG_ASSERT(ret == 0);
+
+	mg_decimal_negative_infinity(&value1);
+	mg_decimal_negative_infinity(&value2);
+
+	MG_OK(mg_decimal_compare(&value1, &value2, /*out*/&ret));
+	MG_ASSERT(ret == 0);
+
+	mg_decimal_positive_infinity(&value1);
+	mg_decimal_negative_infinity(&value2);
+
+	MG_OK(mg_decimal_compare(&value1, &value2, /*out*/&ret));
+	MG_ASSERT(ret > 0);
+
+	mg_decimal_negative_infinity(&value1);
+	mg_decimal_positive_infinity(&value2);
+
+	MG_OK(mg_decimal_compare(&value1, &value2, /*out*/&ret));
+	MG_ASSERT(ret < 0);
+}
+
+static void compare_nan_test(const char *text1)
+{
+	int ret;
+	mg_decimal value1, value2;
+
+	MG_OK(mg_decimal_parse_string(text1, &value1));
+	mg_decimal_nan(&value2);
+
+	MG_ASSERT(mg_decimal_compare(&value1, &value2, /*out*/&ret) != 0);
+	MG_ASSERT(mg_decimal_compare(&value2, &value1, /*out*/&ret) != 0);
+}
+
 void test_mg_decimal_compare_1()
 {
 	MG_TEST_BEGIN();
@@ -40,6 +110,36 @@ void test_mg_decimal_compare_1()
 	compare_test("0.0000000000000000000000000000000000000000000000000000000000000000001", "0.0000000000000000000000000000000000000000000000000000000000000000001", 0);
 	compare_test("0.000000000000000000000000000000000000000000000000000000000000000001", "0.0000000000000000000000000000000000000000000000000000000000000000001", 1);
 	compare_test("0.0000000000000000000000000000000000000000000000000000000000000000001", "0.000000000000000000000000000000000000000000000000000000000000000001", -1);
-	
+
+	compare_nan_test("0");
+	compare_nan_test("123456");
+	compare_nan_test("123456999999999");
+	compare_nan_test("0.000000001");
+	compare_nan_test("-123456");
+	compare_nan_test("-123456999999999");
+	compare_nan_test("-0.000000001");
+
+	compare_positive_infinity_test("0");
+	compare_positive_infinity_test("123456");
+	compare_positive_infinity_test("123456999999999");
+	compare_positive_infinity_test("0.000000001");
+	compare_positive_infinity_test("-123456");
+	compare_positive_infinity_test("-123456999999999");
+	compare_positive_infinity_test("-0.000000001");
+	compare_positive_infinity_test("9999999999999999999999999999999999999999999999999999990000000000000000000000000000000000");
+	compare_positive_infinity_test("-9999999999999999999999999999999999999999999999999999990000000000000000000000000000000000");
+
+	compare_negative_infinity_test("0");
+	compare_negative_infinity_test("123456");
+	compare_negative_infinity_test("123456999999999");
+	compare_negative_infinity_test("0.000000001");
+	compare_negative_infinity_test("-123456");
+	compare_negative_infinity_test("-123456999999999");
+	compare_negative_infinity_test("-0.000000001");
+	compare_negative_infinity_test("9999999999999999999999999999999999999999999999999999990000000000000000000000000000000000");
+	compare_negative_infinity_test("-9999999999999999999999999999999999999999999999999999990000000000000000000000000000000000");
+
+	compare_infinity_test();
+
 	MG_TEST_END();
 }
