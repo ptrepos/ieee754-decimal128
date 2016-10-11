@@ -69,6 +69,9 @@
     <ClInclude Include="include\magica\decimal.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="src\generic32\include\magica\decimal_private_impl.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\generic64\uint128_div.c">
@@ -237,6 +240,9 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="src\decimal_compare_1.c">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\decimal_private_impl.c">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>

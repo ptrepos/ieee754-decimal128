@@ -12,14 +12,14 @@
 #include <magica/decimal_private_def.h>
 #include <magica/decimal.h>
 
-#define WORD_COUNT			(sizeof(mg_decimal) / sizeof(uint64_t))
+#define WORD_COUNT			(sizeof(mg_decimal) / sizeof(uint32_t))
 #define INFO_INDEX			(WORD_COUNT-1)
 
-#define SCALE_MASK			(0x7FFE000000000000ULL)
-#define SCALE_BITINDEX		(49L)
-#define SIGN_MASK			(0x8000000000000000ULL)
-#define SIGN_BITINDEX		(63L)
-#define FRACTION_MASK		(0x0001FFFFFFFFFFFFULL)
+#define SCALE_MASK			(0x7FFE0000)
+#define SCALE_BITINDEX		(17)
+#define SIGN_MASK			(0x80000000)
+#define SIGN_BITINDEX		(31L)
+#define FRACTION_MASK		(0x0001FFFF)
 #define FRACTION_BITINDEX	(0L)
 
 #define DECIMAL_STATUS_ZERO		(0)
@@ -34,12 +34,12 @@ static inline int __mg_decimal_is_overflow(const mg_uint256 *value)
 
 MG_PRIVATE mg_decimal_error __mg_decimal_round_down_max_digits(mg_uint256 *value, int scale, int *rounded_scale);
 
-static inline uint64_t __mg_decimal_get_bits(uint64_t dest, uint64_t mask, int bitindex)
+static inline uint32_t __mg_decimal_get_bits(uint32_t dest, uint32_t mask, int bitindex)
 {
-	return (uint64_t)((dest & mask) >> bitindex);
+	return (uint32_t)((dest & mask) >> bitindex);
 }
 
-static inline uint64_t __mg_deciaml_set_bits(uint64_t dest, uint64_t value, uint64_t mask, int bitindex)
+static inline uint32_t __mg_deciaml_set_bits(uint32_t dest, uint32_t value, uint64_t mask, int bitindex)
 {
 	return (dest & ~mask) | ((value << bitindex) & mask);
 }
@@ -59,7 +59,6 @@ static inline void __mg_decimal_set_sign(mg_decimal *value, int sign)
 		SIGN_BITINDEX);
 }
 
-
 static inline void __mg_decimal_parse(
 		const mg_decimal *value,
 		int *sign,
@@ -72,9 +71,13 @@ static inline void __mg_decimal_parse(
 	int nscale = ((value->w[INFO_INDEX] & SCALE_MASK) >> SCALE_BITINDEX);
 	
 	fraction->word[0] = value->w[0];
-	fraction->word[1] = ((value->w[INFO_INDEX] & FRACTION_MASK) >> FRACTION_BITINDEX);
-	fraction->word[2] = 0;
-	fraction->word[3] = 0;
+	fraction->word[1] = value->w[1];
+	fraction->word[2] = value->w[2];
+	fraction->word[3] = ((value->w[INFO_INDEX] & FRACTION_MASK) >> FRACTION_BITINDEX);
+	fraction->word[4] = 0;
+	fraction->word[5] = 0;
+	fraction->word[6] = 0;
+	fraction->word[7] = 0;
 
 	if(nscale == SCALE_INFINITY) {
 		if(mg_uint256_is_zero(fraction)) {
@@ -93,10 +96,12 @@ static inline void __mg_decimal_parse(
 static inline void __mg_decimal_set(/*out*/mg_decimal *value, int sign, int scale, const mg_uint256 *fraction)
 {
 	value->w[0] = fraction->word[0];
+	value->w[1] = fraction->word[1];
+	value->w[2] = fraction->word[2];
 	value->w[INFO_INDEX] =
-		(((uint64_t)sign << SIGN_BITINDEX) & SIGN_MASK) | 
-		(((uint64_t)scale << SCALE_BITINDEX) & SCALE_MASK) | 
-		(((uint64_t)fraction->word[1] << FRACTION_BITINDEX) & FRACTION_MASK);
+		(((uint32_t)sign << SIGN_BITINDEX) & SIGN_MASK) | 
+		(((uint32_t)scale << SCALE_BITINDEX) & SCALE_MASK) | 
+		(((uint32_t)fraction->word[3] << FRACTION_BITINDEX) & FRACTION_MASK);
 }
 
 MG_PRIVATE mg_decimal_error adjust_overflow_scale(
@@ -137,10 +142,12 @@ static inline mg_decimal_error __mg_decimal_set_1(/*out*/mg_decimal *value, int 
 	scale += SCALE_SIGNEXPAND;
 
 	value->w[0] = adjusted_fraction.word[0];
+	value->w[1] = adjusted_fraction.word[1];
+	value->w[2] = adjusted_fraction.word[2];
 	value->w[INFO_INDEX] =
-		(((uint64_t)sign << SIGN_BITINDEX) & SIGN_MASK) | 
-		(((uint64_t)scale << SCALE_BITINDEX) & SCALE_MASK) | 
-		(((uint64_t)adjusted_fraction.word[1] << FRACTION_BITINDEX) & FRACTION_MASK);
+		(((uint32_t)sign << SIGN_BITINDEX) & SIGN_MASK) | 
+		(((uint32_t)scale << SCALE_BITINDEX) & SCALE_MASK) | 
+		(((uint32_t)adjusted_fraction.word[3] << FRACTION_BITINDEX) & FRACTION_MASK);
 
 _EXIT:
 	return 0;

@@ -178,6 +178,7 @@
     <ClCompile Include="src\decimal_one.c" />
     <ClCompile Include="src\decimal_parse_string.c" />
     <ClCompile Include="src\decimal_positive_infinity.c" />
+    <ClCompile Include="src\decimal_private_impl.c" />
     <ClCompile Include="src\decimal_round_ceiling.c" />
     <ClCompile Include="src\decimal_round_down.c" />
     <ClCompile Include="src\decimal_round_down_max_digits.c" />
@@ -252,6 +253,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\magica\decimal.h" />
+    <ClInclude Include="src\generic32\include\magica\decimal_private_impl.h" />
     <ClInclude Include="src\generic32\include\magica\int\intop.h" />
     <ClInclude Include="src\generic32\include\magica\int\uint128_def.h" />
     <ClInclude Include="src\generic32\include\magica\int\uint128_impl.h" />

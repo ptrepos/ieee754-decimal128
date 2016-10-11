@@ -76,7 +76,9 @@ MG_DECIMAL_API mg_decimal_error mg_decimal_multiply(const mg_decimal *op1, const
 		scale = rounded_scale;
 	}
 
-	__mg_decimal_set_2(ret, sign, scale, fraction);
+	err = __mg_decimal_set_1(ret, sign, scale, fraction);
+	if(err != 0)
+		goto _ERROR;
 
 _EXIT:
 	return 0;

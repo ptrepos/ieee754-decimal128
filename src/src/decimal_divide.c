@@ -89,9 +89,13 @@ MG_DECIMAL_API mg_decimal_error mg_decimal_divide(const mg_decimal *op1, const m
 			err = MG_DECIMAL_ERROR_OVERFLOW;
 			goto _ERROR;
 		}
-		__mg_decimal_set_2(/*out*/ret, sign, scale, tmp);
+		err = __mg_decimal_set_1(ret, sign, scale, tmp);
+		if(err != 0)
+			goto _ERROR;
 	} else {
-		__mg_decimal_set_2(/*out*/ret, sign, scale, q);
+		err = __mg_decimal_set_1(ret, sign, scale, q);
+		if(err != 0)
+			goto _ERROR;
 	}
 
 _EXIT:
