@@ -23,7 +23,7 @@
 #define FRACTION_BITINDEX	(0L)
 
 #define DECIMAL_STATUS_ZERO		(0)
-#define DECIMAL_STATUS_REQULER	(1)
+#define DECIMAL_STATUS_REGULAR	(1)
 #define DECIMAL_STATUS_INF		(2)
 #define DECIMAL_STATUS_NAN		(3)
 
@@ -86,7 +86,7 @@ static inline void __mg_decimal_parse(
 		*status = DECIMAL_STATUS_ZERO;
 	} else {
 		*scale = nscale - SCALE_SIGNEXPAND;
-		*status = DECIMAL_STATUS_REQULER;
+		*status = DECIMAL_STATUS_REGULAR;
 	}
 }
 
