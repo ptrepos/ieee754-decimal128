@@ -16,6 +16,7 @@ typedef struct mg_decimal
 {
 	uint64_t w[2];
 } mg_decimal;
+
 #ifdef __cplusplus
 }
 #endif
